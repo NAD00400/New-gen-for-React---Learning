@@ -86,4 +86,5 @@ npm run preview
 yarn preview
 ```
 
-## Dành cho mấy ông VN .Tôi dùng AI dể tạo ra file readme này theo mô tả của tôi chứ tôi mà viết thì như sh*t .Nguồn tôi tham khảo cách code này là Thầy Hoàng Js .Người dạy tôi (hay người cấp cho tôi cái cần câu cơm tên ReactJs) là anh hoidanit mấy ông có thể tham khả .Cái này là ăn quả nhớ kẻ trồng trọt :>
+## Dành cho mấy ông VN .
+Tôi dùng AI dể tạo ra file readme này theo mô tả của tôi chứ tôi mà viết thì như sh*t .Nguồn tôi tham khảo cách code này là Thầy Hoàng Js .Người dạy tôi (hay người cấp cho tôi cái cần câu cơm tên ReactJs) là anh hoidanit mấy ông có thể tham khả .Cái này là ăn quả nhớ kẻ trồng trọt :>
