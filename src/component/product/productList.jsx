@@ -14,7 +14,7 @@ const ProductList = () => {
     const [query, updateQuery, resetQuery] = useQuery({
         q:"",
         page: 1,
-        limit: 88,
+        limit: 8,
         sortBy: "title",
         order: "asc",
     });
