@@ -14,7 +14,7 @@ const ProductList = () => {
     const [query, updateQuery, resetQuery] = useQuery({
         q:"",
         page: 1,
-        limit: 5,
+        limit: 88,
         sortBy: "title",
         order: "asc",
     });
@@ -34,53 +34,54 @@ const ProductList = () => {
         updateQuery({ limit :newLimit , page:1 })
     }
     return (
-        <div>
-            <h1>Danh sách sản phẩm</h1>
-            <div>
-                <span>hiển thị tối đa</span>
-                <select name="" id="" onChange={(e)=>{handleLimit(e.target.value)}}value={query.limit}>
-                    <option value="5"> 5 </option>
-                    <option value="5"> 10 </option>
-                </select>
-                <span>sản phẩm</span>
-            </div>
-            
-            <div><span> tìm kiếm </span><input type="text" onChange={(e)=>handleSearch(e.target.value)}/></div>
-            <select name="" id="" onChange={(e)=>{handleSort(e.target.value)}}>
-                {sortOption.map((opt ,index)=>(
-                    
-                    <option key ={index} value={index}>
-                        {opt.label}
-                    </option>
-                    
+        <div className="container">
+            <h1 style={{ fontSize: "24px", fontWeight: "bold", marginBottom: "16px" }}>
+            Danh sách sản phẩm
+            </h1>
+
+            <div className="header">
+            <input
+                type="text"
+                placeholder="Tìm kiếm sản phẩm..."
+                onChange={(e) => handleSearch(e.target.value)}
+            />
+
+            <select onChange={(e) => handleLimit(Number(e.target.value))} value={query.limit}>
+                <option value="8">8 sản phẩm / trang</option>
+                <option value="12">12 sản phẩm / trang</option>
+            </select>
+
+            <select onChange={(e) => handleSort(e.target.value)}>
+                {sortOption.map((opt, index) => (
+                <option key={index} value={index}>
+                    {opt.label}
+                </option>
                 ))}
             </select>
-            <table border='1' className="table">
-                <thead>
-                    <tr >
-                        <th>Title</th>
-                        <th>Price</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                    data && data.map((item) => (
-                        <tr key={item.id}>
-                            <td>{item.title}</td>
-                            <td>{item.price}</td>
-                            <td>{item.description}</td>
-                        </tr>
-                    ))
-                    }
-                </tbody>
-            </table>
-            <button disabled={query.page <= 1} onClick={() => handlePage(query.page -1)}>-</button> 
-            <span>{query.page}</span> 
-            <button onClick={()=>handlePage(query.page +1)}>+</button>
+            </div>
 
+            <div className="grid">
+            {data &&
+                data.map((item) => (
+                <div className="card" key={item.id}>
+                    <div className="card-title">{item.title}</div>
+                    <div className="card-price">{item.price} VND</div>
+                    <div className="card-desc">{item.description}</div>
+                </div>
+                ))}
+            </div>
+
+            <div className="pagination">
+            <button disabled={query.page <= 1} onClick={() => handlePage(query.page - 1)}>
+                Trang trước
+            </button>
+            <span>{query.page}</span>
+            <button onClick={() => handlePage(query.page + 1)}>Trang sau</button>
+            </div>
         </div>
     );
+
+
 };
 
 export { ProductList };
